@@ -288,7 +288,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>450 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>456 Words</span>
         </span>
     
     
@@ -307,18 +307,19 @@ mjx-container[display="true"] + br {
         <div class="article-content markdown-body">
             <h1 id="Introduction-to-Informed-Search"><a href="#Introduction-to-Informed-Search" class="headerlink" title="Introduction to Informed Search"></a>Introduction to Informed Search</h1><h2 id="Uniformed-Search-vs-Informed-Search"><a href="#Uniformed-Search-vs-Informed-Search" class="headerlink" title="Uniformed Search vs Informed Search"></a>Uniformed Search vs Informed Search</h2><ol>
 <li><p>Uniformed Search (aka blind search)</p>
-<img src="Introduction-to-Informed-Search/image-20220518232830133.png" alt="image-20220518232830133" style="zoom:50%;"></li>
+<img src="/imgs/Introduction-to-Informed-Search/image-20220518232830133-2251363.png" alt="image-20220518232830133" style="zoom:50%;"></li>
 <li><p>Informed Search (aka heuristic search)</p>
 <ul>
 <li><p>Search guided by heuristic evaluation of how promising a node is.</p>
-<img src="Introduction-to-Informed-Search/image-20220518233006020.png" alt="image-20220518233006020" style="zoom:50%;"></li>
+<img src="/imgs/Introduction-to-Informed-Search/image-20220518233006020.png" alt="image-20220518233006020" style="zoom:50%;"></li>
 </ul>
 </li>
 </ol>
-<img src="Introduction-to-Informed-Search/image-20220518233051593.png" alt="image-20220518233051593" style="zoom:30%;">
+<img src="/imgs/Introduction-to-Informed-Search/image-20220518233051593.png" alt="image-20220518233051593" style="zoom: 33%;">
 
 <h2 id="Uniformed-Search"><a href="#Uniformed-Search" class="headerlink" title="Uniformed Search"></a>Uniformed Search</h2><p><strong>Dijkstra’s Algorithm</strong>. It works by visiting vertices in the graph starting with the object’s starting point. Then repeatedly examinges the closest not-yet examinged vertex, adding its vertices to the set of vertices to be examined. As long as none of the edges have a negative cost, Dijkstra’s Algorithm is guaranteed to find a shortest path from the starting point to the goal.</p>
-<p><img src="Introduction-to-Informed-Search/dijkstra.png" alt="img"></p>
+<img src="/imgs/Introduction-to-Informed-Search/dijkstra.png" alt="img" style="zoom:50%;">
+
 <h2 id="Greedy-Search"><a href="#Greedy-Search" class="headerlink" title="Greedy Search"></a>Greedy Search</h2><h3 id="Strategy"><a href="#Strategy" class="headerlink" title="Strategy:"></a>Strategy:</h3><p> Expand node in frontier with smallest heuristic value.</p>
 <blockquote>
 <p>Heuristic, some estimate of how far from the goal any vertex is. </p>
@@ -328,33 +329,37 @@ mjx-container[display="true"] + br {
 <li>Not guaranteed to find a shortest path.</li>
 <li>Runs much quicker than Dijkstra’s Algorithm because it uses the heuristic function to guide its way towards the goal very quickly.</li>
 </ol>
-<p><img src="Introduction-to-Informed-Search/best-first-search.png" alt="img"></p>
+<img src="/imgs/Introduction-to-Informed-Search/best-first-search.png" alt="best-first-search" style="zoom:50%;">
+
 <blockquote>
 <p>In this example, the goal (blue point) is to the south of the starting position (pink one),  Greedy Search will tend to focus on paths that lead southwards. Yellow represents those nodes with a high heuristic value (high cost to get to the goal) and black represents nodes with a low heuristic value (low cost to get to the goal).</p>
 </blockquote>
 <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>When there exists obstacles. Dijkstra’s Algorithm is garanteed to find a shortest path but with a lot work to do.</p>
-<p><img src="Introduction-to-Informed-Search/dijkstra-trap.png" alt="img"></p>
+<img src="/imgs/Introduction-to-Informed-Search/dijkstra-trap.png" alt="img" style="zoom:50%;">
+
 <p>Greedy search does less work but the path it finds is clearly not as good.</p>
-<p><img src="Introduction-to-Informed-Search/best-first-search-trap.png" alt="img"></p>
+<img src="/imgs/Introduction-to-Informed-Search/best-first-search-trap.png" alt="img" style="zoom:50%;">
+
 <p>The trouble is that Greedy Best-First-Search is “greedy” and tries to move towards the goal even if it’s not the right path. Since it only considers the cost to get to the goal and ignores the cost of the path so far, it keeps going even if the path it’s on has become really long.</p>
 <h2 id="The-A-Algorithm"><a href="#The-A-Algorithm" class="headerlink" title="The A* Algorithm"></a>The A* Algorithm</h2><p>A* is like Dijkstra’s Algorithm in that it can be used to find a shortest path. A* is like Greedy Best-First-Search in that it can use a heuristic to guide itself. In the simple case, it is as fast as Greedy Best-First-Search:</p>
-<p><img src="Introduction-to-Informed-Search/a-star.png" alt="img"></p>
-<p><img src="Introduction-to-Informed-Search/a-star-trap.png" alt="img"></p>
+<img src="/imgs/Introduction-to-Informed-Search/a-star.png" alt="img" style="zoom:50%;">
+
+<img src="/imgs/Introduction-to-Informed-Search/a-star-trap.png" alt="img" style="zoom:50%;">
+
 <ul>
 <li>Uniform-cost orders by <strong>path cost</strong>, or <strong>backward cost</strong> <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="4.197ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 1855 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D454" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z"></path></g><g data-mml-node="mo" transform="translate(477,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(866,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1466,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></li>
 <li>Greedy orders by <strong>goal proximity</strong>, or <strong>forward cost</strong> <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="4.421ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 1954 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="210E" d="M137 683Q138 683 209 688T282 694Q294 694 294 685Q294 674 258 534Q220 386 220 383Q220 381 227 388Q288 442 357 442Q411 442 444 415T478 336Q478 285 440 178T402 50Q403 36 407 31T422 26Q450 26 474 56T513 138Q516 149 519 151T535 153Q555 153 555 145Q555 144 551 130Q535 71 500 33Q466 -10 419 -10H414Q367 -10 346 17T325 74Q325 90 361 192T398 345Q398 404 354 404H349Q266 404 205 306L198 293L164 158Q132 28 127 16Q114 -11 83 -11Q69 -11 59 -2T48 16Q48 30 121 320L195 616Q195 629 188 632T149 637H128Q122 643 122 645T124 664Q129 683 137 683Z"></path></g><g data-mml-node="mo" transform="translate(576,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(965,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1565,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></li>
 <li>A* Search orders by the sum: <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="18.762ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 8293 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mo" transform="translate(550,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(939,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1539,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(2205.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(3261.6,0)"><path data-c="1D454" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z"></path></g><g data-mml-node="mo" transform="translate(3738.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(4127.6,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(4727.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(5338.8,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(6339,0)"><path data-c="210E" d="M137 683Q138 683 209 688T282 694Q294 694 294 685Q294 674 258 534Q220 386 220 383Q220 381 227 388Q288 442 357 442Q411 442 444 415T478 336Q478 285 440 178T402 50Q403 36 407 31T422 26Q450 26 474 56T513 138Q516 149 519 151T535 153Q555 153 555 145Q555 144 551 130Q535 71 500 33Q466 -10 419 -10H414Q367 -10 346 17T325 74Q325 90 361 192T398 345Q398 404 354 404H349Q266 404 205 306L198 293L164 158Q132 28 127 16Q114 -11 83 -11Q69 -11 59 -2T48 16Q48 30 121 320L195 616Q195 629 188 632T149 637H128Q122 643 122 645T124 664Q129 683 137 683Z"></path></g><g data-mml-node="mo" transform="translate(6915,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(7304,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(7904,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></li>
 </ul>
 <h3 id="When-should-A-terminate"><a href="#When-should-A-terminate" class="headerlink" title="When should A* terminate?"></a>When should A* terminate?</h3><p>Only stops when we dequeue a goal.</p>
-<img src="Introduction-to-Informed-Search/image-20220519000034078.png" alt="image-20220519000034078" style="zoom:50%;">
-
-<h3 id="Admissible-Heuristics"><a href="#Admissible-Heuristics" class="headerlink" title="Admissible Heuristics"></a>Admissible Heuristics</h3><img src="Introduction-to-Informed-Search/image-20220519000216864.png" alt="image-20220519000216864" style="zoom:40%;">
+<p>&lt;img src=”Introduction-to-Informe<img src="/imgs/Introduction-to-Informed-Search/image-20220519000034078.png" alt="image-20220519000034078" style="zoom:50%;"></p>
+<h3 id="Admissible-Heuristics"><a href="#Admissible-Heuristics" class="headerlink" title="Admissible Heuristics"></a>Admissible Heuristics</h3><img src="/imgs/Introduction-to-Informed-Search/image-20220519000216864.png" alt="image-20220519000216864" style="zoom:50%;">
 
 <h3 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h3><ul>
 <li><p>Bottom of the lattice is the zero heuristic.</p>
 </li>
 <li><p>Top of the lattice is the exact heuristic.</p>
-<img src="Introduction-to-Informed-Search/image-20220519000815485.png" alt="image-20220519000815485" style="zoom:40%;">
+<img src="/imgs/Introduction-to-Informed-Search/image-20220519000815485.png" alt="image-20220519000815485" style="zoom:50%;">
 
 <p>In this example, the path that A* graph search consider is : S, SA, SC, SAC, SCG. In the graph search process, G (5+0) is not considered. </p>
 </li>
@@ -393,21 +398,6 @@ mjx-container[display="true"] + br {
 
         
             <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2023/08/16/Test/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item"></span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
                 
                 
                     <div class="article-next">
