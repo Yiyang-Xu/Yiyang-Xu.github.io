@@ -72,38 +72,28 @@ education:
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - area: BSc Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      GPA: 3.4/4.0
-      
-      Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+
 work:
-  - position: Director of Cloud Infrastructure
-    company_name: GenCoin
+  - position: Quantitative Research Consultant
+    company_name: WorldQuant, LLC
     company_url: ''
     company_logo: ''
-    date_start: 2021-01-01
+    date_start: 2024-03-01
     date_end: ''
     summary: |2-
       Responsibilities include:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - position: Backend Software Engineer
-    company_name: X
+      - Alpha Factor Mining: Utilized genetic algorithms to create 150+ alpha factors in US, Chinese stock market, including 100+ price-volume factors. Achieved a maximum out-sample Sharpe ratio of 5.07.
+      - Statistical Arbitrage Model: Developed a statistical arbitrage model for the A-share market. Utilized cointegration and mean reversion strategies, achieving a Sharpe Ratio of 2.8 and annualized return of 25%.
+
+  - position: Quantitative Developer Intern
+    company_name: China International Capital Corporation
     company_url: ''
     company_logo: ''
-    date_start: 2016-01-01
-    date_end: 2020-12-31
+    date_start: 2023-05-01
+    date_end: 2023-08-01
     summary: |
       Responsibilities include:
-      - Migrated infrastructure to a new data center
+      - Snowball Option Pricing: Priced a snowball product linked to the CSI 500 index using the Black-Scholes model and Monte Carlo simulation in Python. Implemented partial differential equations (PDEs) to calculate the Greeks.
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
 
