@@ -93,9 +93,8 @@ work:
     date_end: 2023-08-01
     summary: |
       Responsibilities include:
-      - Snowball Option Pricing: Priced a snowball product linked to the CSI 500 index using the Black-Scholes model and Monte Carlo simulation in Python. Implemented partial differential equations (PDEs) to calculate the Greeks.
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+      - **Snowball Option Pricing**: Priced a snowball product linked to the CSI 500 index using the Black-Scholes model and Monte Carlo simulation in Python. Implemented partial differential equations (PDEs) to calculate the Greeks.
+
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
@@ -118,7 +117,7 @@ skills:
     color: '#eeac02'
     color_border: '#f0bf23'
     items:
-      - name: Hiking
+      - name: Swimming
         description: ''
         percent: 60
         icon: person-simple-walk
@@ -135,9 +134,9 @@ languages:
   - name: English
     percent: 100
   - name: Chinese
-    percent: 75
-  - name: Portuguese
-    percent: 25
+    percent: 100
+  - name: German
+    percent: 55
 
 # Awards.
 #   Add/remove as many awards below as you like.
@@ -173,4 +172,4 @@ awards:
 
 ## About Me
 
-Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+I am a Quantitative Analyst with a Master of Financial Engineering from USC, specializing in quantitative research, financial modeling, and risk management. With over 2 years of experience at leading firms like WorldQuant LLC and China International Capital Corporation, I have developed trading models that achieved a Sharpe Ratio of 2.8 and annualized returns of 25%, and implemented risk management systems that reduced portfolio vulnerability by 24%. Proficient in Python, Java, and SQL, I excel in algorithm development, statistical analysis, and data modeling. I am dedicated to delivering innovative solutions and collaborating effectively to drive financial performance and manage risk.
