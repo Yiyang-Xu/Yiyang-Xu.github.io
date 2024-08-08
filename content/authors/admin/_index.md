@@ -77,7 +77,7 @@ work:
   - position: Quantitative Research Consultant
     company_name: WorldQuant, LLC
     company_url: ''
-    company_logo: ''
+    company_logo: 'logos/WorldQuant'
     date_start: 2024-03-01
     date_end: ''
     summary: |2-
