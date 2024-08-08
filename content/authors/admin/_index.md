@@ -73,27 +73,27 @@ education:
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
 
-# work:
-#   - position: Quantitative Research Consultant
-#     company_name: WorldQuant, LLC
-#     company_url: ''
-#     company_logo: WorldQuant
-#     date_start: 2024-03-01
-#     date_end: ''
-#     summary: |2-
-#       Responsibilities include:
-#       - Alpha Factor Mining: Utilized genetic algorithms to create 150+ alpha factors in US, Chinese stock market, including 100+ price-volume factors. Achieved a maximum out-sample Sharpe ratio of 5.07.
-#       - Statistical Arbitrage Model: Developed a statistical arbitrage model for the A-share market. Utilized cointegration and mean reversion strategies, achieving a Sharpe Ratio of 2.8 and annualized return of 25%.
+work:
+  - position: Quantitative Research Consultant
+    company_name: WorldQuant, LLC
+    company_url: ''
+    company_logo: brands/WorldQuant
+    date_start: 2024-03-01
+    date_end: ''
+    summary: |2-
+      Responsibilities include:
+      - Alpha Factor Mining: Utilized genetic algorithms to create 150+ alpha factors in US, Chinese stock market, including 100+ price-volume factors. Achieved a maximum out-sample Sharpe ratio of 5.07.
+      - Statistical Arbitrage Model: Developed a statistical arbitrage model for the A-share market. Utilized cointegration and mean reversion strategies, achieving a Sharpe Ratio of 2.8 and annualized return of 25%.
 
-#   - position: Quantitative Developer Intern
-#     company_name: China International Capital Corporation
-#     company_url: ''
-#     company_logo: ''
-#     date_start: 2023-05-01
-#     date_end: 2023-08-01
-#     summary: |
-#       Responsibilities include:
-#       - **Snowball Option Pricing**: Priced a snowball product linked to the CSI 500 index using the Black-Scholes model and Monte Carlo simulation in Python. Implemented partial differential equations (PDEs) to calculate the Greeks.
+  - position: Quantitative Developer Intern
+    company_name: China International Capital Corporation
+    company_url: ''
+    company_logo: ''
+    date_start: 2023-05-01
+    date_end: 2023-08-01
+    summary: |
+      Responsibilities include:
+      - **Snowball Option Pricing**: Priced a snowball product linked to the CSI 500 index using the Black-Scholes model and Monte Carlo simulation in Python. Implemented partial differential equations (PDEs) to calculate the Greeks.
 
 
 # Skills

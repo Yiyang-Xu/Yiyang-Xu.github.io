@@ -31,7 +31,7 @@ sections:
           position: center
           parallax: false
           
-  - block: experience
+  - block: resume-experience
     content:
       title: Experience
       # Date format for experience
