@@ -112,6 +112,22 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-hugo-resources-
 
+    - name: Normalize Tailwind CLI for Hugo
+      if: hashFiles('package.json') != ''
+      run: |
+        # Hugo's css.TailwindCSS expects the tailwindcss command to be either a
+        # standalone binary or a real Node.js script. pnpm's generated shim is
+        # a shell wrapper, so point it at the CLI entry file directly.
+        TAILWIND_CLI=$(node -e "process.stdout.write(require.resolve('@tailwindcss/cli/package.json').replace(/package\.json$/, 'dist/index.mjs'))")
+        if [ ! -f "$TAILWIND_CLI" ]; then
+          echo "::error::Tailwind CLI entrypoint not found: $TAILWIND_CLI"
+          exit 1
+        fi
+        chmod +x "$TAILWIND_CLI"
+        rm -f node_modules/.bin/tailwindcss
+        ln -s "$TAILWIND_CLI" node_modules/.bin/tailwindcss
+        node "$TAILWIND_CLI" --help > /dev/null
+
     - name: Setup Pages
       id: pages
       uses: actions/configure-pages@v5
