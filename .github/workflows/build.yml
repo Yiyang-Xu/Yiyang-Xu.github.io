@@ -1,7 +1,7 @@
 name: Build
 
 env:
-  NODE_VERSION: '20'
+  NODE_VERSION: '22'
 
 on:
   # Standalone trigger for PR validation
@@ -77,6 +77,18 @@ jobs:
         echo "HUGO_VERSION=$VERSION" >> $GITHUB_ENV
         echo "Using Hugo version: $VERSION"
 
+    # Cache dependencies (Go modules, node_modules) - stable, rarely changes
+    - uses: actions/cache@v5
+      with:
+        path: |
+          /tmp/hugo_cache_runner/
+          node_modules/
+          modules/*/node_modules/
+        key: ${{ runner.os }}-hugo-deps-${{ hashFiles('**/go.mod', '**/package-lock.json',
+          '**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-hugo-deps-
+
     - name: Install dependencies
       run: |
         # Install Tailwind CLI if package.json exists
@@ -90,18 +102,6 @@ jobs:
       with:
         hugo-version: ${{ env.HUGO_VERSION }}
         extended: true
-
-    # Cache dependencies (Go modules, node_modules) - stable, rarely changes
-    - uses: actions/cache@v5
-      with:
-        path: |
-          /tmp/hugo_cache_runner/
-          node_modules/
-          modules/*/node_modules/
-        key: ${{ runner.os }}-hugo-deps-${{ hashFiles('**/go.mod', '**/package-lock.json',
-          '**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-hugo-deps-
 
     # Cache Hugo resources (processed images, CSS) - invalidates only when assets/config change
     - uses: actions/cache@v5
@@ -117,18 +117,16 @@ jobs:
       run: |
         # Hugo's css.TailwindCSS expects the tailwindcss command to be either a
         # standalone binary or a real Node.js script. pnpm's generated shim is
-        # a shell wrapper, and running the JS entrypoint directly can pass Node
-        # flags that are not available on the Actions Node version, so point
-        # Hugo at Tailwind's native Linux binary instead.
-        TAILWIND_CLI=$(find node_modules -path '*/@tailwindcss/oxide-linux-x64-gnu/tailwindcss' -type f | head -n 1)
-        if [ -z "$TAILWIND_CLI" ] || [ ! -f "$TAILWIND_CLI" ]; then
-          echo "::error::Tailwind native Linux binary not found"
+        # a shell wrapper, so point it at the CLI entry file directly.
+        TAILWIND_CLI=$(node -e "process.stdout.write(require.resolve('@tailwindcss/cli/package.json').replace(/package\.json$/, 'dist/index.mjs'))")
+        if [ ! -f "$TAILWIND_CLI" ]; then
+          echo "::error::Tailwind CLI entrypoint not found: $TAILWIND_CLI"
           exit 1
         fi
         chmod +x "$TAILWIND_CLI"
         rm -f node_modules/.bin/tailwindcss
         ln -s "$TAILWIND_CLI" node_modules/.bin/tailwindcss
-        node_modules/.bin/tailwindcss --help > /dev/null
+        node "$TAILWIND_CLI" --help > /dev/null
 
     - name: Setup Pages
       id: pages
