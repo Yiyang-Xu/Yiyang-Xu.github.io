@@ -45,6 +45,29 @@ jobs:
         working-directory: quartz-src
         run: npx quartz build
 
+      - name: Inline Quartz stylesheet
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          public = Path('quartz-src/public')
+          css = (public / 'index.css').read_text(encoding='utf-8')
+          style = '<style data-quartz-inline="true">' + css + '</style>'
+
+          for html_path in public.rglob('*.html'):
+              text = html_path.read_text(encoding='utf-8')
+              text, count = re.subn(
+                  r'<link\s+href="(?:\.\./)*index\.css"\s+rel="stylesheet"\s+type="text/css"\s+data-persist="true"\s*/?>',
+                  style,
+                  text,
+                  count=1,
+              )
+              if count == 0:
+                  text = text.replace('</head>', style + '</head>', 1)
+              html_path.write_text(text, encoding='utf-8')
+          PY
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
