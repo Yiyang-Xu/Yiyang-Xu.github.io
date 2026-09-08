@@ -5,8 +5,6 @@ tags:
   - French/TCF-Canada
 ---
 
-# TCF Canada
-
 TCF Canada 专项阶段页面。
 
 ## Compréhension orale
