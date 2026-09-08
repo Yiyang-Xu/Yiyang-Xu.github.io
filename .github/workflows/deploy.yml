@@ -35,6 +35,7 @@ jobs:
           cp -R quartz-content quartz-src/content
           cp quartz-site/quartz.config.ts quartz-src/quartz.config.ts
           cp quartz-site/quartz.layout.ts quartz-src/quartz.layout.ts
+          cp quartz-site/custom.scss quartz-src/quartz/styles/custom.scss
 
       - name: Install Quartz dependencies
         working-directory: quartz-src
