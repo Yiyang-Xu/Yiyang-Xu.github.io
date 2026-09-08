@@ -14,11 +14,11 @@ tags:
 
 ## 学习阶段
 
-- [[A1|A1 —《你好！法语 1》]]
-- [[A2|A2]]
-- [[B1|B1]]
-- [[B2|B2]]
-- [[TCF Canada|TCF Canada]]
+- [[A1/index|A1 —《你好！法语 1》]]
+- [[A2/index|A2]]
+- [[B1/index|B1]]
+- [[B2/index|B2]]
+- [[TCF-Canada/index|TCF Canada]]
 
 ## 维护规则
 
